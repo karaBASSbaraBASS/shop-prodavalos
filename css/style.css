@@ -86,3 +86,15 @@ a , a:hower {
 	right: 0; /* 1способ выравнивание */
 	width: 100%; /* 2способ выравнивание */
 }
+
+	p.note {
+      font-size:85%;
+      color:#666;
+    }
+
+    p.note:before {
+      content:"[";
+    }
+    p.note:after {
+      content:"]";
+    }
