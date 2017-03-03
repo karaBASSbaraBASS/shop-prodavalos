@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald'); 
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,6 +20,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 } 
+
 
 html {
 	height: 100%;
@@ -207,3 +210,165 @@ a , a:hover {
 	text-transform: uppercase;
 }
 
+#home {
+	padding-bottom: 10px; /* чтобы белый блок выпал вниз */
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff;
+	margin-bottom: 40px;
+}
+
+.home-bg {
+	background: #cd3737;
+	padding: 20px 0;
+	
+	-webkit-box-shadow: inset 0 5px 5px rgba(0,0,0,.25); /* тень внутренняя 5 радиус 5 размытие и 25% прозрачность */
+	   -moz-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+	    -ms-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+	     -o-box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+			box-shadow: inset 0 5px 5px rgba(0,0,0,.25);
+}
+
+.title-home {
+	color: #fff;
+	text-transform: uppercase;
+	font: 28px 'Oswald', sans-serif;
+	
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	   -moz-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	    -ms-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	     -o-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+			text-shadow: 0 1px 1px rgba(0,0,0,.25);
+}
+
+.breadcrumbs li {
+	float: left;
+}
+
+.breadcrumbs li a,
+.breadcrumbs li span {
+	font-size: 12px;
+	color: #fff;
+
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	   -moz-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	    -ms-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+	     -o-text-shadow: 0 1px 1px rgba(0,0,0,.25);
+			text-shadow: 0 1px 1px rgba(0,0,0,.25);
+}
+
+.breadcrumbs li .sp {
+	display: inline-block;
+	margin: 0 5px 0 0;
+	font-size: 16px;
+	
+}
+
+.breadcrumbs li a:hover {
+	text-decoration: underline;
+}
+
+.home-link {
+	display: inline-block;
+	margin-top: 12px;
+	width: 36px;
+	height: 33px;
+	background: url(../img/HouseIcon.png) no-repeat;
+}
+
+.sorting {
+	padding: 18px 18px 14px 18px;
+	background: #fff;
+	border: 1px solid #EAEAEA;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	     -o-border-radius: 3px;
+	        border-radius: 3px;
+	margin-bottom: 40px;
+}
+
+.s-category li {
+	padding: 4px 15px 0 9px;
+	float: left;
+	background: url(../img/s-sp.png) no-repeat right center;
+}
+
+.s-category li:last-child {
+	background: none;
+}
+
+.s-category li:first-child {
+	padding: 4px 15px 0 0;
+}
+
+.s-category{
+	display: inline-block;
+}
+
+.s-category a {
+	color: #1e1e20;
+	text-transform: uppercase;
+}
+
+.s-category a:hover,
+.s-category li.active a {
+	color: #cd3737;
+}
+
+.sel-sorting {
+	display: inline-block;
+	margin-right: 80px;
+}
+
+.sel-sorting span {
+	font: bold 13px/20px Arial, sans-serif;
+}
+
+.s-list a {
+	display: inline-block;
+	vertical-align: middle;
+	height: 19px;
+	width: 30px;
+	background: url(../img/sprite-filter.png) no-repeat center 15px;
+}
+
+.s-list a.s-block {
+	background-position: 0 0;
+}
+
+.s-list a.s-block.active,
+.s-list a.s-block:hover {
+	background-position: -30px 0;
+}
+
+.s-list a.s-list {
+	background-position: -60px 0;
+}
+
+.s-list a.s-list.active,
+.s-list a.s-list:hover {
+	background-position: -90px 0;
+}
+
+.s-list a + a {
+	margin-left: 10px;
+}
+
+.sidebar {
+	width: 240px;
+	outline: 1px solid red;
+}
+
+.content {
+	margin-right: 285px;
+	outline: 1px solid red;
+}
+
+.products {
+	width: 210px;
+	height: 370px;
+	background: #FFF;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+}
