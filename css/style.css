@@ -355,20 +355,322 @@ a , a:hover {
 
 .sidebar {
 	width: 240px;
-	outline: 1px solid red;
 }
 
 .content {
 	margin-right: 285px;
-	outline: 1px solid red;
 }
 
 .products {
-	width: 210px;
+	width: 215px;
 	height: 370px;
 	background: #FFF;
+	overflow: hidden;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+	
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+	   -moz-box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+	     -o-box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+	        box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+}
+
+.products:nth-child(3n) {
+	margin-right: 0;
+}
+
+/* поскольку кружечек sale позиционируется внутри p-img*/
+.p-img {
+	position: relative;
+	height: 215px;
+	overflow: hidden;
+	border: 1px solid #000;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+	
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	   -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	     -o-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	        box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+}
+
+.p-img a img {
+	display: block;
+    max-width: 215px;
+    height: 215px;
+}
+
+.sale {
+	font: bold 12px/50px Arial, sans-serif; /*выравниваем надпись по центру круга через lineheight 50px*/
+	color: #fff;
+	text-transform: uppercase;
+	position: absolute;
+	text-align: center;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+	height: 50px;
+	z-index: 3;
+	background: rgba(204,51,51,.6);
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+	     -o-border-radius: 50%;
+	        border-radius: 50%;
+}
+
+.products h6,
+.s-product-info h6 {
+	margin: 13px 0;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.products h6 span {
+	font-weight: normal;
+	font-style: italic;
+}
+
+.p-footer {
+	padding: 0 10px 15px 10px;
+}
+
+.p-footer p strong {
+	font-weight: bold;
+}
+
+.p-footer p {
+	margin-bottom: 15px;
+}
+
+.p-footer h6 a:hover,
+.s-product-info h6 a:hover {
+	text-decoration: underline;
+}
+
+.price-lg {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 7px;
+}
+
+.price {
+	display: inline-block;
+	font-weight: bold;
+	text-decoration: line-through;
+	margin-top: 3px;
+}
+
+.price-new {
+	display: inline-block;
+	font-weight: bold;
+	color: #fff;
+	padding: 3px;
+	background: #c33;
+	margin-top: 3px;
+}
+
+.add-cart {
+	display: block;
+	text-transform: uppercase;
+	padding: 6px 9px;
+	font-size: 10px;
+	background: #1E1E20;
+	color: #fff;
+	
 	-webkit-border-radius: 5px;
 	   -moz-border-radius: 5px;
 	     -o-border-radius: 5px;
 	        border-radius: 5px;
 }
+
+.add-cart:hover {
+	background: #888;
+}
+
+.rate {
+	margin: 10px 0;
+	height: 15px;
+	background: url(../img/black-star.png) repeat-x;
+	width: 76px;
+}
+
+.rate > div {
+	height: 100%;
+	background: url(../img/red-star.png) repeat-x;
+}
+
+.pagination {
+	margin-top: 20px;
+}
+
+.pagination ul li {
+	float: left;
+	margin-right: 15px;
+}
+
+.pagination ul li:first-child {
+	padding-left: 10px;
+}
+
+.pagination ul a {
+	font: bold 14px/20px Arial, sans-serif;
+}
+
+.pagination ul a:hover {
+	color: #cc3333;
+}
+
+.pagination ul li.active a {
+	color: #cc3333;
+}
+
+
+.s-title {
+	position: relative; /*Для позиционирования красного кирпичика*/
+	margin: 0 0 10px;
+	padding: 0 0 15px 15px;
+	font: 18px 'Oswald', sans-serif;
+	color: #2a2b2c;
+	text-transform: uppercase;
+	border-bottom: 1px dotted #d5d5d5;
+}
+
+.s-title .s-title-br {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	width: 40px;
+	height: 8px;
+	margin-top: -4px; /*сдвиг кирпичика вверх за пунктир*/
+	background: #cc3333;
+}
+
+.s-products {
+	margin: 15px 0 0;
+	padding-left: 15px;
+}
+
+.s-products-item {
+	margin-bottom: 10px;
+}
+
+.s-products-img {
+	height: 90px;
+	width: 90px;
+	float: left;
+	overflow: hidden;
+	padding: 5px;
+	background: #44484e;
+}
+
+.s-products-img a img {
+	display: block;
+    max-width: 80px;
+    height: 80px;
+}
+
+.s-product-info {
+	padding-top: 10px;
+	margin-left: 105px;
+}
+
+.s-product-info h6 {
+	margin-top: 0 !important;
+}
+
+.ic-comment {
+	display: inline-block;
+	vertical-align: middle;
+	width: 13px;
+	height: 12px;
+	background: url(../img/comments.png) no-repeat center;
+}
+
+.s-product-info span {
+	font-size: 11px;
+	color: #1e1e20;
+	text-transform: uppercase;
+}
+
+.cat-list {
+	margin: 10px 0 30px 0;
+	padding-left: 15px;
+	list-style: url(../img/bulletSidebar.png);
+	list-style-position: inside; /* расположить маркеры внутри блоков */
+}
+
+.cat-list li {
+	padding: 10px 0;
+	border-bottom: 1px dotted #9fa0a1;
+}
+
+.cat-list li:last-child {
+	border-bottom: none;
+}
+
+.cat-list li a {
+	font: bold 13px/13px Arial, sans-serif;
+	color: #2a2b2c;
+}
+
+.cat-list li a:hover {
+	color: #cc3333;
+}
+
+.cat-list li span {
+	display: inline-block;
+	margin-left: 5px;
+	color: #7d7e7e;
+	font: bold 13px/13px Arial, sans-serif;
+}
+
+.s-search {
+	position: relative; /*для позиционирования иконки поиска*/
+	margin-top: 15px;
+	padding-left: 15px;
+}
+
+.s-search input[type="text"] {
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding: 0 45px 0 15px; /* для того чтобы строка ввода не залазила за кнопку */
+	border: 1px solid #e7e7e7;
+	background: #fff;
+	
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0, 0.06);
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0, 0.06);
+		-ms-box-shadow: 0 1px 2px rgba(0,0,0, 0.06);
+	     -o-box-shadow: 0 1px 2px rgba(0,0,0, 0.06);
+	        box-shadow: 0 1px 2px rgba(0,0,0, 0.06);
+}
+
+.s-search input[type="text"]::-webkit-input-placeholder {
+	font-style: italic;
+	color: #c3c2c2;
+}
+
+.s-search input[type="text"]::-moz-placeholder {
+	font-style: italic;
+	color: #c3c2c2;
+}
+
+.s-search input[type="submit"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	border: none;
+	background: transparent url(../img/s-search-btn.png) no-repeat center;
+	cursor: pointer; /* по умолчанию кнопки не имеют курсора */
+} 
