@@ -82,6 +82,11 @@ a , a:hover {
 	text-align: center;
 }
 
+.wrapper {
+	min-height: 100%; /* выравниваем для всех браузеров длинну обертки, для прижатия футера */
+	height: auto !important;
+	height: 100%; 
+}
 
 .center {
 	width: 960px;
@@ -112,20 +117,45 @@ a , a:hover {
 	        border-radius: 50%;
 }
 
-.social a.s-fb {
+.social a.s-fb,
+.social a.f-s-fb:hover {
 	background-position: 0 0;
 }
-.social a.s-dribble {
+.social a.f-s-fb,
+.social a.s-fb:hover {
+	background-position: 0 -23px;
+}
+.social a.s-dribble,
+.social a.f-s-dribble:hover {
 	background-position: -23px 0;
 }
-.social a.s-tw {
+.social a.f-s-dribble,
+.social a.s-dribble:hover {
+	background-position: -23px -23px;
+}
+.social a.s-tw,
+.social a.f-s-tw:hover {
 	background-position: -46px 0;
 }
-.social a.s-mail {
+.social a.f-s-tw,
+.social a.s-tw:hover {
+	background-position: -46px -23px;
+}
+.social a.s-mail,
+.social a.f-s-mail:hover {
 	background-position: -69px 0;
 }
-.social a.s-vimeo {
+.social a.f-s-mail,
+.social a.s-mail:hover {
+	background-position: -69px -23px;
+}
+.social a.s-vimeo,
+.social a.f-s-vimeo:hover {
 	background-position: -92px 0;
+}
+.social a.f-s-vimeo,
+.social a.s-vimeo:hover {
+	background-position: -92px -23px;
 }
 
 .login {
@@ -284,6 +314,10 @@ a , a:hover {
 	     -o-border-radius: 3px;
 	        border-radius: 3px;
 	margin-bottom: 40px;
+}
+
+.middle {
+	padding-bottom: 300px; /* место для прижатия футера */
 }
 
 .s-category li {
@@ -587,12 +621,17 @@ a , a:hover {
 	margin-top: 0 !important;
 }
 
-.ic-comment {
+.ic-comment,
+.ic-comment-white {
 	display: inline-block;
 	vertical-align: middle;
 	width: 13px;
 	height: 12px;
 	background: url(../img/comments.png) no-repeat center;
+}
+
+.ic-comment-white {
+	background: url(../img/f-comments.png) no-repeat center;
 }
 
 .s-product-info span {
@@ -674,3 +713,136 @@ a , a:hover {
 	background: transparent url(../img/s-search-btn.png) no-repeat center;
 	cursor: pointer; /* по умолчанию кнопки не имеют курсора */
 } 
+
+.footer {
+	position: relative;
+	height: 300px;
+	margin-top: -300px; /* загоняем футер в специально выдавленное место в классе middle */
+	padding: 20px 0;
+	border-top: 5px solid #000;
+	background: #000 url(../img/footer-bg.png) repeat;
+}
+
+.footer p {
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+.f-about {
+	width: 240px;
+	margin-right: 20px;
+}
+
+.f-title {
+	margin-bottom: 15px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.f-archives {
+	margin-right: 20px;
+	width: 210px;
+}
+
+.f-list li {
+	padding: 13px 0;
+	border-bottom: 1px dotted #acaba9;
+}
+
+.f-list li:last-child {
+	border-bottom: none;
+}
+
+.f-list li a {
+	color: #fff;
+}
+
+.f-populars {
+	width: 220px;
+	margin-right: 20px;
+}
+
+.f-populars .s-product-info h6 a,
+.f-populars span {
+	color: #fff;
+}
+
+.f-search {
+	width: 205px;	
+}
+
+.f-search-inp input[type="text"] {
+	display: block;
+	height: 35px;
+	width: 100%;
+	margin-bottom: 30px;
+	padding: 0 10px;
+	font-style: italic;
+	font-size: 13px;
+	color: #aaa;
+	border: 1px solid #333434;
+	background: rgba(0,0,0,0.4);
+}
+
+.f-search-inp input[type="text"]::-webkit-input-placeholder {
+	font-style: italic;
+	color: #aaa;
+}
+
+.f-search-inp input[type="text"]::-moz-placeholder {
+	font-style: italic;
+	color: #aaa;
+}
+
+.footer a.tags {
+	display: inline-block;
+	font-size: 13px;
+	color: #fff;
+	background: #2a2a2a;
+	padding: 4px 8px;
+	margin-bottom: 4px;
+}
+
+.footer-bottom {
+	margin-top: 5px;
+	padding: 10px 0;
+	border-top: 2px solid #000000;
+	background: #1b1b1b;
+}
+
+.footer-bottom a,
+.footer-bottom p {
+	font-size: 11px;
+	color: #6e6e6e;
+	-webkit-text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	   -moz-text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	     -o-text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	        text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}			
+
+.footer-bottom a + a {
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.footer-bottom a:hover {
+	color: #fff;
+}
+
+.f-home-link {
+	position: absolute;
+	top: -15px;
+	right: 30px;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	background: #cc3333 url(../img/arrow.png) no-repeat center;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	     -o-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+.f-home-link:hover {
+	background: #912323 url(../img/arrow.png) no-repeat center;
+}
