@@ -8,20 +8,30 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/cusel-min-2.5.js"></script>
 
 	<script>
 	  $( function() {
 	    $( "#slider-range" ).slider({
 	      range: true,
 	      min: 0,
-	      max: 500,
-	      values: [ 75, 300 ],
+	      max: 300,
+	      values: [ 6, 130 ],
 	      slide: function( event, ui ) {
 	        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 	      }
 	    });
 	    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
 	      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+		/* select style */
+			var params = {
+				changedEl: "select",
+				visRows: 5,
+				scrollArrows: true
+			}
+			cuSel(params);
+
 	  } );
 	</script>
 
@@ -105,7 +115,7 @@
 
 			<div class="sel-sorting right">
 				<span>Sort by: </span>
-				<select name="" id="">
+				<select name="" id="" style="width: 110px;">
 					<option value="Alphabetically">Alphabetically</option>
 					<option value="Random">Random</option>
 					<option value="Last added">Last added</option>
@@ -118,12 +128,15 @@
 			<div class="sidebar right">
 				<h4 class="s-title">price filter<span class="s-title-br"></span></h4>
 				
-				<div id="slider-range"></div>
-				<p>
-					<label for="amount">Price range:</label>
-					<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-				</p>
-				
+				<div class="s-slider">
+					<div id="slider-range"></div>
+					<p>
+						<label for="amount">Price range:</label>
+						<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						<button class="btn-bl">Filter</button>
+					</p>
+				</div>
+
 				<h4 class="s-title">best sellers<span class="s-title-br"></span></h4>
 				<div class="s-products">
 					<div class="s-products-item clearfix">
