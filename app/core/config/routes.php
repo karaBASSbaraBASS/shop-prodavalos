@@ -12,8 +12,20 @@ return array(
     // profile
     'profile' => 'profile/index',
 
+    // cd
+    'cd' => 'cd/index',
+
+    // dvd
+    'dvd' => 'dvd/index',
+
+    // news
+    'news' => 'news/index',
+
     // about
     'about' => 'about/index',
+
+    // contact_us
+    'contact_us' => 'contact_us/index',
 
     //Каталог
     'catalog/page-([0-9]+)' => 'catalog/index/$1',

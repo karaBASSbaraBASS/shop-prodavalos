@@ -42,7 +42,7 @@
                     <div class="s-products-item clearfix">
                         <div class="s-products-img">
                             <a href="#">
-                                <img src="img/item2.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item2.jpg" alt="">
                             </a>
                         </div>
                         <div class="s-product-info">
@@ -58,7 +58,7 @@
                     <div class="s-products-item clearfix">
                         <div class="s-products-img">
                             <a href="#">
-                                <img src="img/item5.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item5.jpg" alt="">
                             </a>
                         </div>
                         <div class="s-product-info">
@@ -96,7 +96,7 @@
                         <div class="p-img">
                             <span class="sale">sale</span>
                             <a href="#">
-                                <img src="/img/item1.png" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item1.png" alt="">
                             </a>
                         </div>
                         <div class="p-footer">
@@ -125,7 +125,7 @@
                         <div class="p-img">
                             <span class="sale">sale</span>
                             <a href="#">
-                                <img src="/img/item2.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item2.jpg" alt="">
                             </a>
                         </div>
                         <div class="p-footer">
@@ -154,7 +154,7 @@
                         <div class="p-img">
                             <!--<span class="sale">sale</span>-->
                             <a href="#">
-                                <img src="/img/item3.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item3.jpg" alt="">
                             </a>
                         </div>
                         <div class="p-footer">
@@ -180,7 +180,7 @@
                         <div class="p-img">
                             <!--<span class="sale">sale</span>-->
                             <a href="#">
-                                <img src="/img/item4.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item4.jpg" alt="">
                             </a>
                         </div>
                         <div class="p-footer">
@@ -207,7 +207,7 @@
                         <div class="p-img">
                             <!--<span class="sale">sale</span>-->
                             <a href="#">
-                                <img src="/img/item5.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item5.jpg" alt="">
                             </a>
                         </div>
                         <div class="p-footer">
@@ -234,7 +234,7 @@
                         <div class="p-img">
                             <!--<span class="sale">sale</span>-->
                             <a href="#">
-                                <img src="/img/item6.jpg" alt="">
+                                <img src="<?php echo url::get_template_path();?>assets/img/item6.jpg" alt="">
                             </a>
                         </div>
                         <div class="p-footer">

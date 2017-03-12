@@ -55,7 +55,7 @@
                 <div class="s-products-item clearfix">
                     <div class="s-products-img">
                         <a href="#">
-                            <img src="img/item2.jpg" alt="">
+                            <img src="<?php echo url::get_template_path();?>assets/img/item2.jpg" alt="">
                         </a>
                     </div>
                     <div class="s-product-info">
@@ -68,7 +68,7 @@
                 <div class="s-products-item clearfix">
                     <div class="s-products-img">
                         <a href="#">
-                            <img src="img/item5.jpg" alt="">
+                            <img src="<?php echo url::get_template_path();?>assets/img/item5.jpg" alt="">
                         </a>
                     </div>
                     <div class="s-product-info">
