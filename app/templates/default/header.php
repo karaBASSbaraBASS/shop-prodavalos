@@ -9,34 +9,19 @@
 	<!-- Iconos -->
     <link rel="stylesheet" href="<?php echo url::get_template_path();?>assets/font-awesome/css/font-awesome.min.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src=<?php echo url::get_template_path();?>"assets/js/cusel-min-2.5.js"></script>
+	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/cusel-min-2.5.js"></script>
+	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/modernizr.js"></script>
+	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/slider.js"></script>
+	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/active.js"></script>
 
-	<script>
-		$( function() {
-		    $( "#slider-range" ).slider({
-			    range: true,
-			    min: 0,
-			    max: 300,
-			    values: [ 6, 130 ],
-			    slide: function( event, ui ) {
-			       $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-			    }
-		    });
-
-		    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-		      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-
-			/* select style */
-				var params = {
-					changedEl: "select",
-					visRows: 5,
-					scrollArrows: true
-				}
-				cuSel(params);
-		  	} );
-	</script>
+	
+		<script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+			  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+			  crossorigin="anonymous"></script>
+	
 
 </head>
 <body>
@@ -72,39 +57,19 @@
 		<div id="header" class="center clearfix">
 			<div id="logo" class="left">
 				<a href="#">
-					<img src="img/logo.png" height="60" width="60" alt="">
+					<img src="<?php echo url::get_template_path();?>assets/img/logo.png" height="60" width="60" alt="">
 					<span>Store</span>
 				</a>
 			</div>
 			<ul class="nav right clearfix">
-				<li class="active"><a href="#"> HOME</a></li>
-				<li><a href="#"> CD’s</a></li>
-				<li><a href="#"> DVD’s</a></li>
-				<li><a href="#"> NEWS</a></li>
-				<li><a href="#"> PORTFOLIO</a></li>
-				<li><a href="#"> CONTACT US</a></li>
+				<li><a href="http://shop-prodavalos.local/"> HOME</a></li>
+				<li><a href="http://shop-prodavalos.local/cd"> CD’s</a></li>
+				<li><a href="http://shop-prodavalos.local/dvd"> DVD’s</a></li>
+				<li><a href="http://shop-prodavalos.local/news"> NEWS</a></li>
+				<li><a href="http://shop-prodavalos.local/about"> About</a></li>
+				<li><a href="http://shop-prodavalos.local/contact_us"> CONTACT US</a></li>
 			</ul>
 		</div>
 		<!-- шапка сайта -->
 
-		<div id="home">
-			<div class="home-bg">
-				<div class="center">
-					<a href="/" class="home-link right">&nbsp;</a>
-					<h2 class="title-home">
-						SHOP - SIDEBAR ON THE RIGHT
-					</h2>
-					<ul class="breadcrumbs clearfix">
-						<li>
-							<a href="#">Home</a>
-							<span class="sp">&raquo;</span>
-						</li>
-						<li>
-							<a href="#">Shop</a>
-							<span class="sp">&raquo;</span>
-						</li>
-						<li><span>Sidebar on the right</span></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		

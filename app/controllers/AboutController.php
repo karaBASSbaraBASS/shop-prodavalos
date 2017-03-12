@@ -2,7 +2,7 @@
 
 /**
  * Class AboutController
- * Контроллер About страницы
+ * Контроллер about страницы
  */
  class AboutController extends Controller {
 
