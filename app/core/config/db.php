@@ -5,6 +5,6 @@
 return array(
     'host' => 'localhost',
     'user' => 'root',
-    'db_name' => 'product',
+    'db_name' => 'mstore',
     'pass' => ''
 );
