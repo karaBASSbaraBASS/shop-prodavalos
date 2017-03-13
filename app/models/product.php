@@ -24,7 +24,7 @@ class Product {
         $db = db::getConnection();
 
         $sql = "
-                SELECT id, name, price, is_new, description
+                SELECT *
                   FROM product
                     WHERE status = 1
                       ORDER BY id DESC
@@ -44,7 +44,42 @@ class Product {
 
         return $productsList;
     }
+    /**
+     * Получаем список CD дисков
+     *
+     * @param int $page
+     * @return array
+     */
+    public static function getCdProducts ($page = 1) {
 
+        $limit = self::SHOW_BY_DEFAULT;
+
+        //Задаем смещение
+        $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
+
+        $db = db::getConnection();
+
+        $sql = "
+                SELECT *
+                  FROM product
+                    WHERE disc = 1
+                      ORDER BY id DESC
+                        LIMIT :limit OFFSET :offset
+                ";
+
+        //Подготавливаем данные
+        $res = $db->prepare($sql);
+        $res->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $res->bindParam(':offset', $offset, PDO::PARAM_INT);
+
+        //Выполняем запрос
+        $res->execute();
+
+        //Получаем и возвращаем результат
+        $productsList = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $productsList;
+    }
     /**
      * Возвращает путь к изображению
      * @param integer $id
@@ -258,6 +293,28 @@ class Product {
         $row = $res->fetch();
         return $row['count'];
     }
+    
+    /**
+     * Общее кол-во товаров в магазине
+     *
+     * @return mixed
+     */
+    public static function getPrewText($text,$maxwords=10,$maxchar=50) {
 
-
+        $text=strip_tags($text);
+        $words=split(' ',$text);
+        $text='';
+        $count = 0;
+        foreach ($words as $word) {
+            $count++;
+            if ($count >= $maxwords) break;
+            if (mb_strlen($text.' '.$word) < $maxchar) {
+                $text.=(($text != '') ? ' ' : '').$word;
+            } else {
+                break;
+            }
+        }
+        $text.='...';
+        return $text;
+    }
 }
