@@ -117,7 +117,7 @@
 		                            <h6><a href=""><?php echo $singleItem['name']?></a> <span><?php echo $singleItem['brand']?></span></h6>
 
 		                            <div class="rate">
-		                                <div style="width:'<?php echo $singleItem['is_recomended']?>'%;"></div>
+		                                <div style="width:<?php echo ($singleItem['is_recommended'])?>%;"></div>
 		                            </div>
 
 		                            <p><?php echo Product::getPrewText($singleItem['description']); ?></p>
