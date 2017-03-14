@@ -17,6 +17,9 @@ return array(
 
     // dvd
     'dvd' => 'dvd/index',
+    
+    // rock
+    'rock' => 'rock/index',
 
     // news
     'news' => 'news/index',

@@ -1,4 +1,24 @@
-<div class="sorting center">
+        
+        <div id="home">
+            <div class="home-bg">
+                <div class="center">
+                    <a href="/" class="home-link right">&nbsp;</a>
+                    <h2 class="title-home">
+                        SHOP - <?php echo $data['title']?>
+                    </h2>
+                    <ul class="breadcrumbs clearfix">
+                        <li>
+                            <a href="/">Home</a>
+                            <span class="sp">&raquo;</span>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sorting center">
             <ul class="s-category clearfix">
                 <li class="active"><a href="#">all</a></li>
                 <li><a href="#">rock</a></li>

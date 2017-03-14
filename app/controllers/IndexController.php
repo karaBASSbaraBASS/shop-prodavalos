@@ -11,7 +11,7 @@ class IndexController extends Controller {
     }
 
     public function actionIndex () {
-        $data['title'] = 'Welcome To ';
+        $data['title'] = 'Welcome To Home page';
         //Последние продукты
         //$data['products'] = Product::getLatestProducts();
         $this->_view->rendertemplate('header',$data);

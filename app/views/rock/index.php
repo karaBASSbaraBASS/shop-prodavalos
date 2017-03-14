@@ -96,7 +96,7 @@
 			
                 <ul class="cat-list">
 	                <?php foreach($data['categories'] as $singleItem): ?>
-	                    <li><a href="#"><?php echo($singleItem['name'])?></a><span>(<?php echo($singleItem['cnt'])?>)</span></li>
+	                    <li><a href="#"><?php echo($singleItem['category'])?></a><span>(<?php echo($singleItem['cnt'])?>)</span></li>
 					<?php endforeach; ?>
 				</ul>
                 <h4 class="s-title">search our albums<span class="s-title-br"></span></h4>

@@ -395,7 +395,7 @@ a , a:hover {
 	margin-right: 285px;
 }
 
-.product {
+.product-catalog {
 	margin: 0 -1%;
 }
 
@@ -417,9 +417,6 @@ a , a:hover {
 	        box-shadow: 0 2px 3px rgba(0,0,0,0.15);
 }
 
-.products:nth-child(3n) {
-	margin-right: 0;
-}
 
 /* поскольку кружечек sale позиционируется внутри p-img*/
 .p-img {
@@ -1528,6 +1525,3 @@ header a.cart-link.active span.cart-quantity {
    animation-duration: 1s;
  }
 
- .product-catalog {
- 	
- }

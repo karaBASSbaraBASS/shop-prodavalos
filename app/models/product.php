@@ -80,6 +80,73 @@ class Product {
 
         return $productsList;
     }
+
+    /**
+     * Получаем список CD дисков
+     *
+     * @param int $page
+     * @return array
+     */
+    public static function getCategoryCount () {
+
+        $db = db::getConnection();
+
+        $sql = "
+            SELECT category.category_id as category, category.name, count(*) AS cnt
+            FROM product 
+            INNER JOIN category on product.category_id = category.category_id
+            GROUP BY category.category_id 
+                ";
+
+        //Подготавливаем данные
+        $res = $db->prepare($sql);
+
+        //Выполняем запрос
+        $res->execute();
+
+        //Получаем и возвращаем результат
+        $CategoryCount = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $CategoryCount;
+    }
+    /**
+     * Получаем список CD дисков
+     *
+     * @param int $page
+     * @return array
+     */
+    public static function getCategory($cat=1, $page = 1) {
+        
+         $limit = self::SHOW_BY_DEFAULT;
+
+        //Задаем смещение
+        $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
+
+        $db = db::getConnection();
+
+        $sql = "
+            SELECT *
+                  FROM product
+                    WHERE category_id ='".$cat."'
+                      ORDER BY id DESC
+                        LIMIT :limit OFFSET :offset
+                ";
+
+        //Подготавливаем данные
+        $res = $db->prepare($sql);
+        $res->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $res->bindParam(':offset', $offset, PDO::PARAM_INT);
+        //Выполняем запрос
+        $res->execute();
+
+        //Получаем и возвращаем результат
+        $CategoryCount = $res->fetchAll(PDO::FETCH_ASSOC);
+
+        return $CategoryCount;
+    }
+    
+/* SELECT id_topic, COUNT(id_topic) FROM posts GROUP BY id_topic HAVING COUNT(id_topic) > 2;*/
+
     /**
      * Возвращает путь к изображению
      * @param integer $id

@@ -4,7 +4,7 @@
  * Class CatalogController
  * Контроллер для работы с каталогом товаров
  */
-class CdController extends Controller {
+class RockController extends Controller {
 
     public function __construct(){
         parent::__construct();
@@ -37,16 +37,14 @@ class CdController extends Controller {
 
         $data['title'] = 'Welcome To CD Catalog ';
         //Cd продукты
-        $data['products'] = $CDProducts;
+        $data['products'] = $catFilter;
         
         $data['pagination'] = $pagination;
         //Категории и количества
         $data['categories'] = $catList;
 
-        $data['catFilter'] = $catFilter;
-
         $this->_view->rendertemplate('header',$data);
-        $this->_view->render('cd/index',$data);
+        $this->_view->render('Rock/index',$data);
         $this->_view->rendertemplate('footer',$data);
     }
 
