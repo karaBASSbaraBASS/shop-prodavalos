@@ -88,7 +88,7 @@ class Product {
     public static function getImage ($id) {
 
         // Название изображения-пустышки
-        $noImage = 'no-image.jpg';
+        $noImage = 'no-image.png';
 
         // Путь к папке с товарами
         $path = "/app/media/upload/images/products/";
@@ -299,22 +299,30 @@ class Product {
      *
      * @return mixed
      */
-    public static function getPrewText($text,$maxwords=10,$maxchar=50) {
+    public static function isSale() {
+       echo true;
+    }
 
-        $text=strip_tags($text);
-        $words=split(' ',$text);
+    /**
+     * Общее кол-во товаров в магазине
+     *
+     * @return mixed
+     */
+    public static function getPrewText($text,$maxwords=5,$maxchar=50) {
+
+        $words=preg_split("/[\s,]+/",$text);
         $text='';
-        $count = 0;
         foreach ($words as $word) {
-            $count++;
-            if ($count >= $maxwords) break;
-            if (mb_strlen($text.' '.$word) < $maxchar) {
-                $text.=(($text != '') ? ' ' : '').$word;
-            } else {
+            if (mb_strlen($text.' '.$word)<$maxchar) {
+                $text.=' '.$word;
+            }
+            else {
+                $text.='...';
                 break;
             }
         }
-        $text.='...';
         return $text;
     }
 }
+
+

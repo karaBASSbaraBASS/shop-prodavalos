@@ -36,7 +36,7 @@ class CdController extends Controller {
             "is_recomended" => "50",
             "status" => "1"),
         );
-*/      $page = 2;
+*/      $page = 1;
         $latestProducts = Product::getCdProducts($page); //$productsList;
 
         //Общее кол-во товаров (для пагинации)

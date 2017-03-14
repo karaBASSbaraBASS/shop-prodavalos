@@ -93,18 +93,18 @@
             </div>
             <div class="content">
                 <div class="product-catalog clearfix">
-					<ul>
+					
 
 					<!-- Тестирование -->
 					<?php 
-						//print_r(Product::getCdProducts($page));
+						//print_r($data['products']);
 					?>
 					<!-- // Тестирование -->
 
 					<!-- Цыкл создания обертки для каждого товара -->
 					<?php foreach($data['products'] as $singleItem): ?>
                 	
-                		<li>
+                		<figure class="product" data="<?= $singleItem['id']; ?>">
 		                	<!-- продукт -->
 		                    <div class="products">
 		                        <div class="p-img">
@@ -117,31 +117,36 @@
 		                            <h6><a href=""><?php echo $singleItem['name']?></a> <span><?php echo $singleItem['brand']?></span></h6>
 
 		                            <div class="rate">
-		                                <div style="width:<?php echo $singleItem['is_recomended']?>%;"></div>
+		                                <div style="width:'<?php echo $singleItem['is_recomended']?>'%;"></div>
 		                            </div>
 
 		                            <p><?php echo Product::getPrewText($singleItem['description']); ?></p>
 
 		                            <div class="p-footer-price clearfix">
-		                                <!-- <span class="price">
-		                                    $14.99
-		                                </span>
-		                                <span class="price-new">
-		                                    $8.99
-		                                </span> -->
-		                                <span class="price-lg">
+
+		                           
+										<span class="price">
 		                                    <?php echo $singleItem['price'] ?>&nbspгрн
 		                                </span>
+		                                <span class="price-new">
+		                                    <?php echo round($singleItem['price'] * 70 / 100)?>&nbspгрн
+		                                </span>
+									
+										<!-- <span class="price-lg">
+		                                    <?php //echo $singleItem['price'] ?>&nbspгрн
+		                                </span> -->
+									
+		                                
 		                                <a href="#" class="add-cart right">add to cart</a>
 		                            </div>
 		                        </div>
 		                    </div>
-                    	</li>
+                    	
                 	
-
+					</figure>
                     <!-- // Цыкл создания обертки для каждого товара -->
                     <?php endforeach; ?>
-					</ul>
+					
 					<!-- // продукт -->
                     
                 </div>

@@ -395,14 +395,17 @@ a , a:hover {
 	margin-right: 285px;
 }
 
+.product {
+	margin: 0 -1%;
+}
+
 .products {
 	width: 215px;
-	height: 370px;
+	height: 375px;
 	background: #FFF;
 	overflow: hidden;
 	float: left;
-	margin-right: 15px;
-	margin-bottom: 15px;
+	margin: 1%; /*8%*/
 	-webkit-border-radius: 5px;
 	   -moz-border-radius: 5px;
 	     -o-border-radius: 5px;
@@ -487,6 +490,10 @@ a , a:hover {
 .s-product-info h6 a:hover {
 	text-decoration: underline;
 }
+.p-footer h6 {
+	display: block;
+	height: 25px;
+}
 
 .price-lg {
 	display: inline-block;
@@ -514,7 +521,7 @@ a , a:hover {
 .add-cart {
 	display: block;
 	text-transform: uppercase;
-	padding: 6px 9px;
+	padding: 6px 3px;
 	font-size: 10px;
 	background: #1E1E20;
 	color: #fff;
@@ -1519,4 +1526,8 @@ header a.cart-link.active span.cart-quantity {
  .button .addtocart.active {
    animation-name: rotate;
    animation-duration: 1s;
+ }
+
+ .product-catalog {
+ 	
  }
