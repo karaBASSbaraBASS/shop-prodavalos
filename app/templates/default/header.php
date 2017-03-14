@@ -9,18 +9,13 @@
 	<!-- Iconos -->
     <link rel="stylesheet" href="<?php echo url::get_template_path();?>assets/font-awesome/css/font-awesome.min.css">
 
-	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/cusel-min-2.5.js"></script>
-	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/modernizr.js"></script>
-	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/slider.js"></script>
-	<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/active.js"></script>
+	
 
 	
-		<script
+		<!-- <script
 			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
 			  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-			  crossorigin="anonymous"></script>
+			  crossorigin="anonymous"></script> -->
 	
 
 </head>

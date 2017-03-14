@@ -51,7 +51,7 @@
                 <div class="s-slider">
                     <div id="slider-range"></div>
                     <p>
-                        <label for="amount">Price range:</label>
+                        <label for="amount">Price:</label>
                         <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         <button class="btn-bl">Filter</button>
                     </p>
@@ -168,7 +168,7 @@
                 </div>
 
                 <!-- пагинация -->
-                <div class="pagination middle">
+                <div class="pagination">
                 	<?php echo $data['pagination']->get();?>
             	</div>
 

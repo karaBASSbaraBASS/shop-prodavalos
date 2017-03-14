@@ -1,30 +1,13 @@
 
 
-    <div id="shadow-layer"></div>
+   
 
-    <div id="cart">
-        <h2>Cart</h2>
-        <ul class="cart-items">
-        </ul> <!-- cart-items -->
-
-        <div class="cart-total">
-            <p>Subtotal <span class="subtotalTotal">$0.00</span></p>
-            <p>Tax <span class="taxes">$0.00</span></p>
-            <p>Shipping <span class="shipping">$0.00</span></p>
-            <p>Total <span class="finalTotal">$0.00</span></p>
-        </div> <!--cart-total -->
-
-            <a href="#" class="checkout-btn dialog__trigger">Checkout</a>
-            <p class="error"></p>
-            <p class="go-to-cart"><a href="#">Go to cart page</a></p>
-    </div> <!-- cart -->
-
-<span class="Top"><i class="fa fa-chevron-up"></i></span>
+<span class="Top"><i class="f-home-link"></i></span>
 
 </div> <!-- wrapper -->
 
 <div class="footer">
-        <a href="#f-home-link" class="f-home-link">&nbsp;</a>
+        
         <div class="center clearfix">
             <div class="f-about left">
                 <h5 class="f-title">Little about us</h5>
@@ -104,7 +87,65 @@
     </div>
 
 
-<script src="<?php echo url::get_template_path();?>assets/js/jquery.min.js"></script>
+<div id="cart">
+    <h2>Cart</h2>
+    <ul class="cart-items">
+    </ul> <!-- cart-items -->
+
+    <div class="cart-total">
+        <p>Subtotal <span class="subtotalTotal">$0.00</span></p>
+        <p>Tax <span class="taxes">$0.00</span></p>
+        <p>Shipping <span class="shipping">$0.00</span></p>
+        <p>Total <span class="finalTotal">$0.00</span></p>
+    </div> <!--cart-total -->
+
+    <a href="#" class="checkout-btn dialog__trigger">Checkout</a>
+
+    <p class="error"></p>
+    <p class="go-to-cart"><a href="#">Go to cart page</a></p>
+
+    <div class="pay">
+        <div class="checkout-header">
+          <h1 class="checkout-title">
+            Checkout Order
+            <span class="checkout-price">$10</span>
+          </h1>
+        </div>
+        <p>
+          <input required type="text" class="checkout-input" placeholder="Your name"  name="name">
+          <input required type="tel" name="tel" pattern="0([0-9]{2})([0-9]{7})" placeholder="Телефон в формате: 0(xx)-xxx-xx-xx" class="checkout-input">
+
+          <textarea name="comment" placeholder="Комментарий к заказу" class="checkout-input"></textarea>
+
+        </p>
+
+        <p>
+          <a href="#" class="checkout-btn dialog__pay">Pay Now</a>
+        </p>
+
+
+    </div>
+</div> <!-- cart -->
+
+<script id='cartItem' type='text/template'>
+  <li class="cart-product">
+      <span class="img"><input class="qty" value="1"></span>
+      <span class="name"></span><a href="#" class="item-remove"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a><br />
+      <span class="price"></span>
+      <code class="subtotal"></code><br />
+  </li>
+</script>
+
+<!-- <script src="<?php //echo url::get_template_path();?>assets/js/jquery.min.js"></script>
+<script src="<?php //echo url::get_template_path();?>assets/js/shop.js"></script> -->
+
+<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/cusel-min-2.5.js"></script>
+<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/modernizr.js"></script>
+<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/slider.js"></script>
+<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/active.js"></script>
+<script type="text/javascript" src="<?php echo url::get_template_path();?>assets/js/smooth_scroll.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -145,16 +186,7 @@ $(document).ready(function () {
         }
     });
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() >= 500) {
-            $('.Top').fadeIn();
-        } else {
-            $('.Top').fadeOut();
-        }
-    });
-    $('.Top').click(function () {
-        $('html,body').stop().animate({ scrollTop: 0 });
-    });
+    
 
     $('.drop-down').on('click', function () {
         $('.mega-menu').toggleClass('mega_show');
@@ -187,7 +219,155 @@ $(document).ready(function () {
         }
     });
 
+    $('body').on('click', '.product .add', function () {
+        var items = $cart.children(),
+        $item = $(this).parents('.product'),
+
+        $template = $($('#cartItem').html()),
+
+        $matched = null,
+        quantity = 0;
+
+        $matched = items.filter(function (index) {
+            var $this = $(this);
+            return $this.data('id') === $item.attr('data');
+        });
+
+        if ($matched.length) {
+            quantity = +$matched.find('.qty').val() + 1;
+            $matched.find('.qty').val(quantity);
+            calculateSubtotal($matched);
+        } else {
+            $template.find('span.img').css('background-image', 'url(' + $item.find('img').attr('src') + ')');
+            var p = parseFloat($item.find('.price b').text());
+
+            $template.find('span.name').text($item.find('h3').text().substring(0,20));
+            $template.find('.price').text("$"+$item.find('.price b').text());
+            $template.find('.cart-product').attr('id', $item.attr('data'));
+            $template.find('.subtotal').text('$' + p);
+
+            $template.data('id', $item.attr('data'));
+            $template.data('price', p);
+            $template.data('subtotal', p);
+            $cart.append($template);
+        }
+        updateCartQuantity();
+        calculateAndUpdate();
+    });
+
+    function calculateSubtotal($item) {
+        var quantity = $item.find('.qty').val(),
+        price = $item.data('price'),
+        subtotal = quantity * price;
+
+        $item.find('.subtotal').text('$' + subtotal);
+        $item.data('subtotal', subtotal);
+    }
+
+    function calculateAndUpdate() {
+        var subtotal = 0,
+        items = $('.cart-items').children(),
+        shipping = items.length > 0 ? 5 : 0,
+        tax = 0;
+        items.each(function (index, item) {
+            var $item = $(item),
+            price = $item.data('subtotal');
+            subtotal += price;
+        });
+        $('.subtotalTotal').text(formatDollar(subtotal));
+        tax = subtotal * 0.05;
+        $('.taxes').text(formatDollar(tax));
+        $('.shipping').text(formatDollar(shipping));
+        $('.finalTotal').text(formatDollar(subtotal + tax + shipping));
+    }
+
+    function formatDollar(amount) {
+        return '$' + parseFloat(Math.round(amount * 100) / 100).toFixed(2);
+    }
+
+    function updateCartQuantity() {
+        var quantities = 0,
+        $cartQuantity = $('span.cart-quantity'),
+        items = $cart.children();
+
+        items.each(function (index, item) {
+            var $item = $(item),
+            quantity = +$item.find('.qty').val();
+            quantities += quantity;
+        });
+
+        if (quantities > 0) {
+            $cartQuantity.removeClass('empty');
+        } else {
+            $cartQuantity.addClass('empty');
+        }
+        $cartQuantity.text(quantities);
+    }
+
+    $('body').on('click', '.cart-items .item-remove', function () {
+        var $this = $(this),
+        $item = $this.parents('li');
+        $item.remove();
+        calculateSubtotal($item);
+        updateCartQuantity();
+        calculateAndUpdate();
+    });
+
+
+    $('.dialog__trigger').on('click',function(){ //находим єлемент в дом дереве, вешаем через он собітие на него, собітие пишелся на джаваскрипте.
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'check',
+            success: function(d) {
+                if(d.r == "fail") {
+                    window.location.href = d.url;
+                } else {
+                    console.log(d.msg);
+                    $('.checkout-price').text($('.finalTotal').text());
+                    $('.pay').slideToggle();
+                }
+            }
+        });
+    });
+
+    $('.dialog__pay').on('click',function(){
+
+        var items = $('.cart-items').children();
+        var data = [];
+
+
+        items.each(function (index, item) {
+            var $item = $(item); // поск значения по ксс класу обьекта
+            var its = new Object();
+            its.id = $item.data('id'),
+            console.log(its.id);
+            its.quantity = $item.find('.qty').val();
+            console.log(its.quantity);
+            data.push(its);
+            console.log(data);
+        });
+
+        //console.log(data); //
+        var values = JSON.stringify(data);
+
+        console.log(values); //
+
+        $.ajax({
+             type: 'POST',
+             url: 'cart/index',
+              dataType: 'json',
+              data: 'val=' + values, // создать переменніе для номера и имени, расделить на три части и закинуть в нужніе ячейки таблиці, написать на JS потомучто серверу нужно четко размещать в нужные таюлицы. можно найти их через формы и отправлять сабмитом, сабмит в аяксе работают по другому, страницу не перезагружает 
+              // в строке 30 сама форма создается, там можно создать кнопку сабмит
+             success: function(data){
+                console.log(data);
+                $(location).attr('href', 'cart/index')
+             }
+        });
+
+    });
 });
+
 function toggle_panel_visibility(panel, background_layer, body) {
     if (panel.hasClass('speed-in')) {
         panel.removeClass('speed-in');
@@ -209,6 +389,29 @@ function move_navigation(navigation, $MQ) {
         navigation.insertAfter('header');
     }
 }
+$('body').on('keypress', '.cart-items input', function (ev) {
+    var keyCode = window.event ? ev.keyCode : ev.which;
+    if (keyCode < 48 || keyCode > 57) {
+        if (keyCode != 0 && keyCode != 8 && keyCode != 13 && !ev.ctrlKey) {
+            ev.preventDefault();
+        }
+    }
+});
+
+$('body').on('blur', '.cart-items input', function () {
+    var $this = $(this),
+    $item = $this.parents('li');
+    if (+$this.val() === 0) {
+        $item.remove();
+        calculateSubtotal($item);
+        updateCartQuantity();
+        calculateAndUpdate();
+    } else {
+        calculateSubtotal($item);
+        updateCartQuantity();
+        calculateAndUpdate();
+    }
+});
 
 </script>
 </body>
